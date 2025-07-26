@@ -1,0 +1,20 @@
+# Ignore model files
+*.h5
+*.hdf5
+*.pb
+*.pt
+*.pth
+*.ckpt
+*.joblib
+*.sav
+*.pkl
+
+# Ignore virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+__pycache__/
+*.pyc
+*.pyo
