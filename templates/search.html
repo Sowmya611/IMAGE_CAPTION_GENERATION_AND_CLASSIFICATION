@@ -1,0 +1,57 @@
+<!-- search.html -->
+
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow">
+            <div class="card-header bg-info text-white text-center">
+                <h3 class="mb-0"><i class="bi bi-search"></i> Search Captions</h3>
+            </div>
+            
+            <div class="card-body">
+                <p class="text-muted text-center">
+                    <i class="bi bi-info-circle-fill text-primary"></i> Enter a keyword, and our system will find images with relevant captions.
+                </p>
+
+                <!-- Search Form -->
+                <form method="POST">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" 
+                               placeholder="Search for images by caption..." 
+                               name="search_term" required>
+                        <button class="btn btn-primary" type="submit">
+                            <i class="bi bi-search"></i> Search
+                        </button>
+                    </div>
+                </form>
+                
+                <p class="text-muted text-center">Example searches: water,beach, dog, snow, man...</p>
+            </div>
+        </div>
+
+        <!-- How Searching Works -->
+        <div class="card shadow mt-4">
+            <div class="card-header bg-success text-white text-center">
+                <h4><i class="bi bi-lightbulb"></i> How Searching Works</h4>
+            </div>
+            <div class="card-body text-center">
+                <img src="{{ url_for('static', filename='images/searching_from_db.png') }}" 
+                     alt="Search Process" 
+                     class="img-fluid rounded shadow-lg mb-3"
+                     style="width: 70%; max-height: 500px; object-fit: contain;">
+               
+                <ul class="list-unstyled text-start">
+                    <li><i class="bi bi-pencil-square"></i> Enter a keyword related to the image.</li>
+                    <li><i class="bi bi-database"></i> The system searches the database for matching captions.</li>
+                    <li><i class="bi bi-image"></i> Images related to your keyword will be displayed.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+{% endblock %}

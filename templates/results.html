@@ -1,0 +1,28 @@
+<!-- results.html -->
+
+{% extends "base.html" %}
+{% block title %}Search Results{% endblock %}
+
+{% block content %}
+<div class="row">
+    <h3 class="mb-4">Results for "{{ search_term }}"</h3>
+    
+    {% if results %}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        {% for result in results %}
+        <div class="col">
+            <div class="card h-100 shadow card-hover">
+                <img src="{{ url_for('static', filename='uploads/' + result.filename) }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+                <div class="card-body">
+                    <p class="card-text">{{ result.caption }}</p>
+                    <small class="text-muted">Uploaded: {{ result.upload_date.strftime('%Y-%m-%d') }}</small>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-warning">No images found matching your search.</div>
+    {% endif %}
+</div>
+{% endblock %}
